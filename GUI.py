@@ -14,6 +14,7 @@ import file_deal
 import time
 from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import QRunnable, pyqtSignal, QObject,QThreadPool
+from qfluentwidgets import PushButton,ComboBox,ProgressBar,FolderListDialog
 
 class WorkerSignals(QObject):
     progress = pyqtSignal(int, float)  # 进度百分比和开始时间
@@ -44,12 +45,12 @@ class MainWindow(QWidget):
         # 设置窗口图标
 
         # 文件选择按钮
-        self.fileButton = QPushButton("Select ☆ File(PDF/png/jpg)")
+        self.fileButton = PushButton("Select ☆ File(PDF/png/jpg)")
         self.fileButton.clicked.connect(self.openFileDialog)
         self.layout.addWidget(self.fileButton)
 
         # 选择按钮
-        self.comboBox = QComboBox(self)
+        self.comboBox = ComboBox(self)
         self.comboBox.addItem("realesr-animevideov3")
         self.comboBox.addItem("realesrgan-x4plus")
         self.comboBox.addItem("realesrgan-x4plus-anime")
@@ -57,7 +58,7 @@ class MainWindow(QWidget):
         self.layout.addWidget(self.comboBox)
 
         # 进度条
-        self.progressBar = QProgressBar(self)
+        self.progressBar = ProgressBar(self)
         self.layout.addWidget(self.progressBar)
 
         # 文字显示区域
