@@ -13,7 +13,7 @@
 -   图片批量处理
 
 # 使用
-目前支持图片与pdf输入，你可以在右边的Releases中下载对应系统版本，理论上应该开箱即用。以下为使用模型realesrgan-x4plus-anime处理图片的效果:
+目前支持图片与pdf输入，你可以在右边的<b>Releases</b>中下载对应系统版本，理论上应该开箱即用。以下为使用模型realesrgan-x4plus-anime处理图片的效果:
 
 ![pic](Pictures/Pic_compare.png)
 
