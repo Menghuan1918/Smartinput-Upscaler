@@ -8,9 +8,29 @@ The project is based on [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) fo
 # Usage
 Currently, image and PDF inputs are supported. You can download the corresponding system version from Releases on the right side, which should be ready to use out of the box.
 
-    Note that if the source PDF is already clear enough, it may have a counterproductive effect! (i.e., even less clear)
+![pic](Pictures/Pic_compare.png)
+
+`Note that if the source PDF is already clear enough, it may have a counterproductive effect! (i.e., even less clear)`
+
+![pdf](Pictures/PDF_compare.png)
+
+![win](Pictures/Windows_start.png)
+![Linux](Pictures/Linux_start.png)
+
+## Model and File Selection
+
+Since the backend uses [Real-ESRGAN-ncnn-vulkan](https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan), it is able to use 3 models and supports Intel/AMD/Nvidia graphics card acceleration. The default model is the one suitable for general-purpose image processing.
+
+![model](Pictures/Model_choose.png)
+![Select](Pictures/File_choose.png)
+
+## Progress bar with remaining time estimate
+
+![progress](Pictures/Progress_time.png)
 
 # Building from Source Code
+
+## Install python environment
     conda create -n pdf_up python=3.11
     conda activate pdf_up
     pip install PyMuPDF

@@ -7,11 +7,35 @@
 项目基于[Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)进行快速方便对各种图像/视频进行超分辨率处理。
 
 # 使用
-目前支持图片与pdf输入，你可以在右边的Releases中下载对应系统版本，理论上应该开箱即用。
+目前支持图片与pdf输入，你可以在右边的Releases中下载对应系统版本，理论上应该开箱即用。以下为使用模型realesrgan-x4plus-anime处理图片的效果:
 
-    注意，如果源pdf已经足够清晰，可能会起到反作用！(即更不清晰)
+![pic](Pictures/Pic_compare.png)
+
+`注意，如果源pdf已经足够清晰，可能会起到反作用！(即更不清晰)`
+
+大部分情况下pdf转换效果如下：
+
+![pdf](Pictures/PDF_compare.png)
+
+## 多平台支持
+
+![win](Pictures/Windows_start.png)
+![Linux](Pictures/Linux_start.png)
+
+## 模型与文件选择
+
+由于后端采用的是[Real-ESRGAN-ncnn-vulkan](https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan)，能使用3种模型，并且支持Intel/AMD/Nvidia显卡加速。默认模型为适合通用图片处理的模型。
+
+![model](Pictures/Model_choose.png)
+![Select](Pictures/File_choose.png)
+
+## 带剩余时间估计的进度条
+
+![progress](Pictures/Progress_time.png)
 
 # 从源码构建
+
+## 安装python环境
     conda create -n pdf_up python=3.11
     conda activate pdf_up
     pip install PyMuPDF
