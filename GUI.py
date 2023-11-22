@@ -12,7 +12,7 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import QTimer, Qt
 import file_deal
 import time
-
+from PyQt6.QtGui import QIcon
 from PyQt6.QtCore import QRunnable, pyqtSignal, QObject,QThreadPool
 
 class WorkerSignals(QObject):
@@ -37,9 +37,14 @@ class MainWindow(QWidget):
 
     def initUI(self):
         self.layout = QVBoxLayout()
+        # 设置窗口标题
+        self.setWindowTitle("Smartinput Upscaling")
+        # 设置窗口大小
+        self.resize(300, 150)
+        # 设置窗口图标
 
         # 文件选择按钮
-        self.fileButton = QPushButton("Select ☆ PDF")
+        self.fileButton = QPushButton("Select ☆ File(PDF/png/jpg)")
         self.fileButton.clicked.connect(self.openFileDialog)
         self.layout.addWidget(self.fileButton)
 
@@ -62,16 +67,16 @@ class MainWindow(QWidget):
         self.setLayout(self.layout)
 
     def openFileDialog(self):
-        # 打开文件对话框并获取文件路径
+        # 打开文件对话框并获取文件路径,支持pdf与图片
         file_path, _ = QFileDialog.getOpenFileName(
-            self, "Select ☆ PDF", "", "PDF files (*.pdf)"
+            self, "Select ☆ File(PDF/png/jpg)", "", "PDF (*.pdf);;Images (*.png *.jpg)"
         )
         if file_path:
             self.fileButton.setEnabled(False)  # 禁用文件选择按钮
             self.startProcessing(file_path)
 
     def startProcessing(self, file_path):
-        self.textLabel.setText('Start Processing......')
+        self.textLabel.setText('/ᐠ｡ꞈ｡ᐟ\Start Processing......')
         worker = Worker(file_path, self.comboBox.currentText())
         worker.signals.progress.connect(self.updateProgress)
         self.threadpool.start(worker)
@@ -89,11 +94,12 @@ class MainWindow(QWidget):
 
         if progress >= 100:
             self.fileButton.setEnabled(True)
-            self.textLabel.setText('Done☆')
+            self.textLabel.setText('Done☆(ᕑᗢᓫ∗)')
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     ex = MainWindow()
+    ex.setWindowIcon = (QIcon("./icon.png"))
     ex.show()
     sys.exit(app.exec())
