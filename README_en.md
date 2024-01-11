@@ -5,9 +5,11 @@ Initially, it was because the school's ancestral ppt was too blurry, and I wante
 
 The project is based on [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) for convenient and fast super-resolution processing of various images/videos.
 
+GUI used PyQt-Fluent-Widgets.
+
 # TODO List
 
--   Refactor the interface using PyQt-Fluent-Widgets.
+-   (Almost) lossless compression after image enlargement.
 -   Add video support.
 -   Implement batch processing for images.
 

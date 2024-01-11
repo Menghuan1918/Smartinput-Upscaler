@@ -6,9 +6,11 @@
 
 项目基于[Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)进行快速方便对各种图像/视频进行超分辨率处理。
 
+项目使用了PyQt-Fluent-Widgets进行界面美化。
+
 # TODO List
 
--   使用PyQt-Fluent-Widgets重构界面
+-   在图片放大之后进行(几乎)无损压缩
 -   添加视频支持
 -   图片批量处理
 
