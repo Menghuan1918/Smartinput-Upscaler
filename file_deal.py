@@ -40,7 +40,14 @@ def pdf(file_path,selected_option):
     for i,imge_name in enumerate(os.listdir(temp_dir)):
         input_path = os.path.join(temp_dir, imge_name)
         cmd = [exe_path, '-i', input_path, '-o', input_path, '-n', model_name]
-        subprocess.run(cmd)
+        if os_name == 'Windows':
+            # 创建一个STARTUPINFO对象并设置隐藏属性
+            startupinfo = subprocess.STARTUPINFO()
+            startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+            process = subprocess.Popen(cmd, startupinfo=startupinfo)
+            process.wait()
+        else:
+            subprocess.run(cmd)
         progress_percentage = int((i + 1) / len(os.listdir(temp_dir)) * 100)
         if progress_percentage >= 100:
             yield 99,start_time
@@ -74,5 +81,12 @@ def image(file_path,selected_option):
     model_name = selected_option
     output_path = file_path.replace('.png', f'-{model_name}.png').replace('.jpg', f'-{model_name}.jpg')
     cmd = [exe_path, '-i', file_path, '-o', output_path, '-n', model_name]
-    subprocess.run(cmd)
+    if os_name == 'Windows':
+        # 创建一个STARTUPINFO对象并设置隐藏属性
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        process = subprocess.Popen(cmd, startupinfo=startupinfo)
+        process.wait()
+    else:
+        subprocess.run(cmd)
     yield 100,time.time()

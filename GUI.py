@@ -54,7 +54,7 @@ class MainWindow(QWidget):
         self.comboBox.addItem("realesr-animevideov3")
         self.comboBox.addItem("realesrgan-x4plus")
         self.comboBox.addItem("realesrgan-x4plus-anime")
-        self.comboBox.setCurrentIndex(1)  # 设置默认选项为 realesrgan-x4plus
+        self.comboBox.setCurrentIndex(2)  # 设置默认选项为 realesrgan-x4plus-anime
         self.layout.addWidget(self.comboBox)
 
         # 进度条
@@ -68,9 +68,9 @@ class MainWindow(QWidget):
         self.setLayout(self.layout)
 
     def openFileDialog(self):
-        # 打开文件对话框并获取文件路径,支持pdf与图片
+        # 打开文件对话框并获取文件路径,暂时限制为.pdf,.jpg,.png,.jpeg,返回路径让程序自行判断
         file_path, _ = QFileDialog.getOpenFileName(
-            self, "Select ☆ File(PDF/png/jpg)", "", "PDF (*.pdf);;Images (*.png *.jpg)"
+            self, "Select File", "", "Files (*.pdf *.jpg *.png *.jpeg)"
         )
         if file_path:
             self.fileButton.setEnabled(False)  # 禁用文件选择按钮
